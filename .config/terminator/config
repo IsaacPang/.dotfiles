@@ -1,19 +1,25 @@
 [global_config]
+  borderless = True
   enabled_plugins = LaunchpadBugURLHandler, LaunchpadCodeURLHandler, APTURLHandler, TerminatorThemes
+  always_split_with_profile = True
 [keybindings]
 [profiles]
   [[default]]
     cursor_color = "#aaaaaa"
     font = FiraCode Nerd Font 10
+    show_titlebar = False
     use_system_font = False
+    copy_on_selection = True
   [[Material-Ocean]]
     background_color = "#0f111a"
     cursor_color = "#ffcc00"
     cursor_color_fg = False
     font = FiraCode Nerd Font 10
     foreground_color = "#8f93a2"
+    show_titlebar = False
     palette = "#2e3436:#ff5370:#c3e88d:#ffcb6b:#82aaff:#c792ea:#89ddff:#d3d7cf:#555753:#f07178:#c3e88d:#f78c6c:#729fcf:#bb80b3:#89ddff:#eeeeec"
     use_system_font = False
+    copy_on_selection = True
 [layouts]
   [[default]]
     [[[child0]]]
