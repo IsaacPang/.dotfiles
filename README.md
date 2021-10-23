@@ -1,4 +1,4 @@
-# .configfiles
+# .dotfiles
 
 The bare repository for config files.
 This bare repository was created for the cross saving of linux and unix configuration dot files.
