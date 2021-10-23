@@ -1,0 +1,10 @@
+[user]
+	email = isaac.pang91@gmail.com
+	name = Isaac Pang
+[color]
+	ui = true
+[commit]
+	template = .gitmessage.txt
+[core]
+	editor = nvim
+	excludesfile = .gitignore

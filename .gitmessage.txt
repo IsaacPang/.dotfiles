@@ -1,0 +1,7 @@
+Subject: keep_under_50_chars
+
+Description:
+Multi_line_description_of_commit
+Feel_free_to_be_detailed
+
+[Ticket: null]
