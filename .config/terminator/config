@@ -1,0 +1,34 @@
+[global_config]
+  enabled_plugins = LaunchpadBugURLHandler, LaunchpadCodeURLHandler, APTURLHandler, TerminatorThemes
+[keybindings]
+[profiles]
+  [[default]]
+    cursor_color = "#aaaaaa"
+    use_system_font = False
+  [[Material-Ocean]]
+    background_color = "#0f111a"
+    cursor_color = "#ffcc00"
+    cursor_color_fg = False
+    foreground_color = "#8f93a2"
+    palette = "#2e3436:#ff5370:#c3e88d:#ffcb6b:#82aaff:#c792ea:#89ddff:#d3d7cf:#555753:#f07178:#c3e88d:#f78c6c:#729fcf:#bb80b3:#89ddff:#eeeeec"
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 0:24
+      maximised = False
+      fullscreen = False
+      size = 58, 1027
+      title = isaac@isaac-P51: ~
+      last_active_term = 96d1ec2f-550b-4306-8010-b44faf7ea097
+      last_active_window = True
+    [[[terminal1]]]
+      type = Terminal
+      parent = child0
+      order = 0
+      profile = Material-Ocean
+      uuid = 96d1ec2f-550b-4306-8010-b44faf7ea097
+[plugins]
