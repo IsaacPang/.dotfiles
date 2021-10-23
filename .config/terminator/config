@@ -4,11 +4,13 @@
 [profiles]
   [[default]]
     cursor_color = "#aaaaaa"
+    font = FiraCode Nerd Font 10
     use_system_font = False
   [[Material-Ocean]]
     background_color = "#0f111a"
     cursor_color = "#ffcc00"
     cursor_color_fg = False
+    font = FiraCode Nerd Font 10
     foreground_color = "#8f93a2"
     palette = "#2e3436:#ff5370:#c3e88d:#ffcb6b:#82aaff:#c792ea:#89ddff:#d3d7cf:#555753:#f07178:#c3e88d:#f78c6c:#729fcf:#bb80b3:#89ddff:#eeeeec"
     use_system_font = False

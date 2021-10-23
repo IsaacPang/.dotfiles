@@ -278,3 +278,106 @@ terminator -v
 pip install requests
 mkdir -p $HOME/.config/terminator/plugins
 wget https://git.io/v5Zww -O $HOME"/.config/terminator/plugins/terminator-themes.py"
+pip install black
+ls ~/.local/bin
+ls -a ~/.local/bin
+source ~/.bashrc
+echo $PATH
+clear
+config remote add origin https://github.com/IsaacPang/.dotfiles.git
+config branch -M main
+config push -u origin main
+config remote -v
+config push -u origin main
+config branch -M main
+config push -u origin main
+config status
+ls
+ls -a
+config add .bash_aliases
+config status
+config add .bash_*
+config status
+config add .bashrc
+ls
+ls -a
+config commit -m "Add bashrc"
+git push -u origin main
+config push -u origin main
+ssh-keygen -t ed25519 -C "isaac.pang91@gmail.com"
+eval "(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+eval "(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+jobs
+eval `ssh-agent -s`
+ssh-add
+cat ~/.ssh/id_ed25519.pub | clip
+cat ~/.ssh/id_ed25519.pub | xclip
+cat ~/.ssh/id_ed25519.pub | xclip selection -c
+cat ~/.ssh/id_ed25519.pub | xclip -c
+cat ~/.ssh/id_ed25519.pub | xclip
+cat ~/.ssh/id_ed25519.pub | xclip -sel clip
+config remote add origin git@github.com:IsaacPang/.dotfiles.git
+config remote rm origin
+config remote add origin git@github.com:IsaacPang/.dotfiles.git
+config status
+config -u
+config status -u
+clear
+config branch -M main
+config status
+config push -u origin main
+config status
+config add .profile 
+config commit -m "Add profile"
+config push
+config add README.md
+config commit -m "Add readme"
+config push
+config status
+config add README.md ; config commit -m "Updated readme"
+config push
+cat ~/.bash_logout 
+config add ~/.git*
+config status
+config commit -m "Add git files"
+config add .vimrc .config/nvim/init.vim 
+config commit -m "Add vim & nvim files"
+config push
+ranger --copy-config=all
+ranger
+config add .config/ranger/
+config status
+config commit -m "Add ranger config"
+config status
+config add .config/i3/
+config commit -m "Add i3 config"
+config add .config/rofi/
+config commit -m "Add rofi config"
+config add .config/terminator/; config commit -m "Add terminator config"
+config add scripts/
+config status
+config commit -m "Add scripts"
+config status
+config push
+#1634982912
+config status
+#1634983484
+source ~/.bashrc
+#1634983485
+nvm
+#1634983610
+source ~/.bashrc
+#1634983612
+nvm -v
+#1634983864
+source ~/.bashrc
+#1634983871
+la
+#1634983885
+config status
+#1634983892
+config add .
+#1634983904
+config status
