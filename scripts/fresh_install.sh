@@ -69,18 +69,7 @@ snap install --classic code
 snap install chromium
 snap install fromscratch
 
-# installing neovim nightly version, using fuse
-wget -r https://github.com/neovim/neovim/releases/download/stable/nvim.appimage \
-    -O $HOME/Downloads/nvim
-chmod u+x $HOME/Downloads/nvim
-mv $HOME/Downloads/nvim /usr/bin/
-
-# installing vimplug
-curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-pip3 install --user neovim
-# run :PlugInstall in neovim
-
-# installing fira code nerd font
+# install fira code nerd font
 wget -r https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip \
     -O $HOME/Downloads/FiraCode.zip
 mkdir $HOME/.fonts
@@ -112,3 +101,20 @@ rm -r $HOME/Downloads/FiaCode.zip
 
 # install node version manager
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+
+# install node 14 LTS (should be updated with time)
+nvm install 14
+nvm use 14
+
+# install neovim nightly version, using fuse
+wget -r https://github.com/neovim/neovim/releases/download/stable/nvim.appimage \
+    -O $HOME/Downloads/nvim
+chmod u+x $HOME/Downloads/nvim
+mv $HOME/Downloads/nvim /usr/bin/
+
+# install vimplug
+curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+pip3 install --user neovim
+
+# run :PlugInstall in neovim
+nvim +PlugInstall

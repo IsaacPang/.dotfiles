@@ -17,6 +17,8 @@ Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'}
 Plug 'simonsmith/material.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'preservim/nerdtree'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -78,7 +80,8 @@ let g:fzf_colors =
 
 set softtabstop=4 tabstop=4 shiftwidth=4 expandtab
 
-set clipboard=unnamed
+" set clipboard=unnamed
+set clipboard=unnamedplus
 
 " Key mappings
 " -------------------------------------------------- 
@@ -116,6 +119,17 @@ nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
 
 " Remove highlighting when exiting search
 nnoremap <esc> :noh<return><esc>
+
+" Nerdtree settings
+" -------------------------------------------------- 
+" open nerdtree with Ctrl + b
+nnoremap <C-b> :NERDTreeToggle<CR>
+
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+ 
+
 
 "{{ Colour Schemes
 
