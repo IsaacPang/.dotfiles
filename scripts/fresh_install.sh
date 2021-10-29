@@ -127,9 +127,13 @@ sudo apt-get update; \
   sudo apt-get update && \
   sudo apt-get install -y aspnetcore-runtime-5.0
 
-# Creating console project : dotnet new console -o <app-name>; cd <app-name>
+## C# Development
 # use vscode to develop C# projects
-# While in <app-name> : dotnet restore; dotnet run
+# Creating console projects with C#
+# dotnet new console -o <app-name>; cd <app-name>; dotnet restore; dotnet run
+
+# Creating a MVC webapp with C#
+# dotnet new mvc -au None -o <app-name>; cd <app-name>; dotnet restore; dotnet run
 
 ## Install neovim & configure. This must be done last
 # install neovim nightly version, using fuse
