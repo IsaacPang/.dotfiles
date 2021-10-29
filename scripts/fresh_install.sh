@@ -64,9 +64,12 @@ ranger --copy-config=all
 
 # updating rofi UI $ rofi-theme-selector
 
-# install across linux using snap
+# # install across linux using snap
+# install vscode
 snap install --classic code
+# install chromium
 snap install chromium
+# install from stracth
 snap install fromscratch
 
 # install fira code nerd font
@@ -106,6 +109,25 @@ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 nvm install 14
 nvm use 14
 
+## Install ASP.NET Core Runtime & .NET SDK for C# development
+# get microsoft trusted package signing keys
+wget https://packages.microsoft.com/config/ubuntu/21.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
+rm packages-microsoft-prod.deb
+
+# install .NET SDK
+sudo apt-get update; \
+  sudo apt-get install -y apt-transport-https && \
+  sudo apt-get update && \
+  sudo apt-get install -y dotnet-sdk-5.0
+
+# install ASP.NET Core Runtime
+sudo apt-get update; \
+  sudo apt-get install -y apt-transport-https && \
+  sudo apt-get update && \
+  sudo apt-get install -y aspnetcore-runtime-5.0
+
+## Install neovim & configure. This must be done last
 # install neovim nightly version, using fuse
 wget -r https://github.com/neovim/neovim/releases/download/stable/nvim.appimage \
     -O $HOME/Downloads/nvim
