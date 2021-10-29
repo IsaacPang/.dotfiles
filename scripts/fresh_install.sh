@@ -127,6 +127,8 @@ sudo apt-get update; \
   sudo apt-get update && \
   sudo apt-get install -y aspnetcore-runtime-5.0
 
+# Creating console project : dotnet new console -o <app-name>
+
 ## Install neovim & configure. This must be done last
 # install neovim nightly version, using fuse
 wget -r https://github.com/neovim/neovim/releases/download/stable/nvim.appimage \
