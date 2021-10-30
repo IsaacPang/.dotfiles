@@ -1,6 +1,5 @@
 #!/bin/sh
-# assumes installation of ubuntu > 18.04LTS and snap compatible
-# change the file to executable and run the file as root
+# assumes installation of ubuntu > 18.04LTS and snap compatible change the file to executable and run the file as root
 # sudo chmod +x new_install.sh
 # sudo ./new_install.sh
 
@@ -111,29 +110,38 @@ nvm use 14
 ## Install ASP.NET Core Runtime & .NET SDK for C# development
 # get microsoft trusted package signing keys
 wget https://packages.microsoft.com/config/ubuntu/21.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-sudo dpkg -i packages-microsoft-prod.deb
+dpkg -i packages-microsoft-prod.deb
 rm packages-microsoft-prod.deb
 
 # install latest .NET SDK
-sudo apt-get update; \
-  sudo apt-get install -y apt-transport-https && \
-  sudo apt-get update && \
-  sudo apt-get install -y dotnet-sdk-5.0
+apt-get update; \
+  apt-get install -y apt-transport-https && \
+  apt-get update && \
+  apt-get install -y dotnet-sdk-5.0
 
 # install latest ASP.NET Core Runtime
-sudo apt-get update; \
-  sudo apt-get install -y apt-transport-https && \
-  sudo apt-get update && \
-  sudo apt-get install -y aspnetcore-runtime-5.0
+apt-get update; \
+  apt-get install -y apt-transport-https && \
+  apt-get update && \
+  apt-get install -y aspnetcore-runtime-5.0
 
+## install LTS versions
+# view latest apt policy for LTS version
+# apt policy dotnet-sdk-3.1
+# apt-get install -y --allow-downgrades dotnet-sdk-3.1=3.1.414-1
+# apt policy dotnet-sdk-2.1
+# apt-get install -y --allow-downgrades dotnet-sdk-2.1=2.1.818-1
+
+
+## Installation option with dotnet-install.sh
 # install side-by-side .NET SDK & Core runtimes
-wget https://dot.net/v1/dotnet-install.sh -O $HOME/scripts/dotnet-install.sh
-chmod +x $HOME/scripts/dotnet-install.sh
+# wget https://dot.net/v1/dotnet-install.sh -O $HOME/scripts/dotnet-install.sh
+# chmod +x $HOME/scripts/dotnet-install.sh
 
-# install compatible .NET runtime & SDKs for dotnet-try tool
-$HOME/scripts/dotnet-install.sh --channel "LTS" --install-dir "$HOME/.dotnet" --os "linux"
-$HOME/scripts/dotnet-install.sh --channel "3.0" --install-dir "$HOME/.dotnet" --os "linux"
-$HOME/scripts/dotnet-install.sh --channel "2.1" --install-dir "$HOME/.dotnet" --os "linux"
+## install compatible .NET runtime & SDKs for dotnet-try tool
+# $HOME/scripts/dotnet-install.sh --channel "LTS" --install-dir "$HOME/.dotnet" --os "linux"
+# $HOME/scripts/dotnet-install.sh --channel "3.0" --install-dir "$HOME/.dotnet" --os "linux"
+# $HOME/scripts/dotnet-install.sh --channel "2.1" --install-dir "$HOME/.dotnet" --os "linux"
 
 # install dotnet-try
 dotnet tool install --global Microsoft.dotnet-try # --version 1.0.20474.1
@@ -165,4 +173,3 @@ nvim '+PlugInstall --sync' +qa
 # home Projects folder
 mkdir $HOME/Projects
 git clone https://github.com/dotnet/try-samples.git $HOME/Projects/try-samples
-

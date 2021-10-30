@@ -234,4 +234,4 @@ export NVM_DIR="$HOME/.nvm"
 # add additional binaries to PATH
 # add the custom binaries at the start of path to allow for resolutions to custom binaries first
 export PATH=$HOME/.local/bin:$PATH
-export PATH=$HOME/.dotnet:$PATH
+# export PATH=$HOME/.dotnet:$PATH
