@@ -1,6 +1,5 @@
 #!/bin/sh
-# assumes installation of ubuntu > 18.04LTS and snap compatible
-# change the file to executable and run the file as root
+# assumes installation of ubuntu > 18.04LTS and snap compatible change the file to executable and run the file as root
 # sudo chmod +x new_install.sh
 # sudo ./new_install.sh
 
@@ -14,8 +13,8 @@ apt install git
 # # Set up ssh
 # ssh-keygen -t ed25519 -C "your.email@example.com"
 # eval `ssh-agent -s`
-# ssh-add ~/.ssh/id_ed25519
-# cat ~/.ssh/id_ed25519.pub | xclip -sel clip
+# ssh-add $HOME/.ssh/id_ed25519
+# cat $HOME/.ssh/id_ed25519.pub | xclip -sel clip
 
 # update bash & aliases
 touch $HOME/.bash_aliases
@@ -37,7 +36,6 @@ echo "alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'" 
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 echo ".dotfiles" >> .gitignore
 git clone --bare https://github.com/IsaacPang/.dotfiles.git $HOME/.dotfiles
-
 
 # install python other tooling
 apt python3-pip unzip
@@ -64,9 +62,12 @@ ranger --copy-config=all
 
 # updating rofi UI $ rofi-theme-selector
 
-# install across linux using snap
+# # install across linux using snap
+# install vscode
 snap install --classic code
+# install chromium
 snap install chromium
+# install from stracth
 snap install fromscratch
 
 # install fira code nerd font
@@ -106,6 +107,56 @@ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 nvm install 14
 nvm use 14
 
+## Install ASP.NET Core Runtime & .NET SDK for C# development
+# get microsoft trusted package signing keys
+wget https://packages.microsoft.com/config/ubuntu/21.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+dpkg -i packages-microsoft-prod.deb
+rm packages-microsoft-prod.deb
+
+# install latest .NET SDK
+apt-get update; \
+  apt-get install -y apt-transport-https && \
+  apt-get update && \
+  apt-get install -y dotnet-sdk-5.0
+
+# install latest ASP.NET Core Runtime
+apt-get update; \
+  apt-get install -y apt-transport-https && \
+  apt-get update && \
+  apt-get install -y aspnetcore-runtime-5.0
+
+## install LTS versions
+# view latest apt policy for LTS version
+# apt policy dotnet-sdk-3.1
+# apt-get install -y --allow-downgrades dotnet-sdk-3.1=3.1.414-1
+# apt policy dotnet-sdk-2.1
+# apt-get install -y --allow-downgrades dotnet-sdk-2.1=2.1.818-1
+
+
+## Installation option with dotnet-install.sh
+# install side-by-side .NET SDK & Core runtimes
+# wget https://dot.net/v1/dotnet-install.sh -O $HOME/scripts/dotnet-install.sh
+# chmod +x $HOME/scripts/dotnet-install.sh
+
+## install compatible .NET runtime & SDKs for dotnet-try tool
+# $HOME/scripts/dotnet-install.sh --channel "LTS" --install-dir "$HOME/.dotnet" --os "linux"
+# $HOME/scripts/dotnet-install.sh --channel "3.0" --install-dir "$HOME/.dotnet" --os "linux"
+# $HOME/scripts/dotnet-install.sh --channel "2.1" --install-dir "$HOME/.dotnet" --os "linux"
+
+# install dotnet-try
+dotnet tool install --global Microsoft.dotnet-try # --version 1.0.20474.1
+# dotnet tool uninstall --global Microsoft.dotnet-try
+# dotnet tool update --global Microsoft.dotnet-try
+
+## C# Development
+# use vscode to develop C# projects
+# Creating console projects with C#
+# dotnet new console -o <app-name>; cd <app-name>; dotnet restore; dotnet run
+
+# Creating a MVC webapp with C#
+# dotnet new mvc -au None -o <app-name>; cd <app-name>; dotnet restore; dotnet run
+
+## Install neovim & configure. This must be done last
 # install neovim nightly version, using fuse
 wget -r https://github.com/neovim/neovim/releases/download/stable/nvim.appimage \
     -O $HOME/Downloads/nvim
@@ -116,5 +167,9 @@ mv $HOME/Downloads/nvim /usr/bin/
 curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 pip3 install --user neovim
 
-# run :PlugInstall in neovim
-nvim +PlugInstall
+# run :PlugInstall in neovim syncrhonously
+nvim '+PlugInstall --sync' +qa
+
+# home Projects folder
+mkdir $HOME/Projects
+git clone https://github.com/dotnet/try-samples.git $HOME/Projects/try-samples

@@ -232,4 +232,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # add additional binaries to PATH
-export PATH=$PATH:$HOME/.local/bin
+# add the custom binaries at the start of path to allow for resolutions to custom binaries first
+export PATH=$HOME/.local/bin:$PATH
+# export PATH=$HOME/.dotnet:$PATH
