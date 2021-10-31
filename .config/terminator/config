@@ -28,10 +28,10 @@
       type = Window
       parent = ""
       order = 0
-      position = 0:24
+      position = 0:18
       maximised = False
       fullscreen = False
-      size = 954, 1027
+      size = 876, 1402
       title = isaac@isaac-P51: ~
       last_active_term = 327b77c6-d316-4595-b442-4d900bbe10e9
       last_active_window = True
@@ -39,14 +39,14 @@
       type = HPaned
       parent = child0
       order = 0
-      position = 256
-      ratio = 0.2697576396206533
+      position = 235
+      ratio = 0.269804822043628
     [[[child2]]]
       type = VPaned
       parent = child1
       order = 0
-      position = 339
-      ratio = 0.33170254403131116
+      position = 463
+      ratio = 0.33142448103078026
     [[[terminal3]]]
       type = Terminal
       parent = child2
@@ -57,8 +57,8 @@
       type = VPaned
       parent = child2
       order = 1
-      position = 339
-      ratio = 0.5
+      position = 466
+      ratio = 0.4994640943193998
     [[[terminal5]]]
       type = Terminal
       parent = child4
