@@ -167,7 +167,7 @@ mv $HOME/Downloads/nvim /usr/bin/
 curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 pip3 install --user neovim
 
-# run :PlugInstall in neovim syncrhonously
+# run :PlugInstall in neovim syncrhonously then quit all
 nvim '+PlugInstall --sync' +qa
 
 # home Projects folder
