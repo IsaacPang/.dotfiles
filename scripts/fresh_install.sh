@@ -173,3 +173,7 @@ nvim '+PlugInstall --sync' +qa
 # home Projects folder
 mkdir $HOME/Projects
 git clone https://github.com/dotnet/try-samples.git $HOME/Projects/try-samples
+
+# set Nvidia X Server to prevent Scren Tearing
+# Nvidia X Server in Ubuntu - Select Configuration & Advanced
+# Select Force Composition Pipeline or Force Full Composition Pipeline
