@@ -57,6 +57,13 @@ apt install ranger i3 feh fonts-font-awesome rofi \
 add-apt-repository -y -u ppa:linuxuprising/shutter
 apt install shutter
 
+# install video camera drivers
+apt install cheese
+# install zoom from zoom website
+
+# install python and neovim deps
+python3 -m pip install --user --upgrade pynvim
+
 # ranger configs
 ranger --copy-config=all
 
@@ -64,11 +71,13 @@ ranger --copy-config=all
 
 # # install across linux using snap
 # install vscode
-snap install --classic code
+snap install code --classic
 # install chromium
 snap install chromium
 # install from stracth
 snap install fromscratch
+# install slack
+sudo snap install slack --classic
 
 # install fira code nerd font
 wget -r https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip \
@@ -104,6 +113,7 @@ rm -r $HOME/Downloads/FiaCode.zip
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 
 # install node 14 LTS (should be updated with time)
+nvm install --lts
 nvm install 14
 nvm use 14
 
