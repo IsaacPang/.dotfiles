@@ -9,6 +9,7 @@ apt upgrade -y
 
 # install git
 apt install git
+apt install xclip
 
 # # Set up ssh
 # ssh-keygen -t ed25519 -C "your.email@example.com"
