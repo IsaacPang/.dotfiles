@@ -188,3 +188,8 @@ git clone https://github.com/dotnet/try-samples.git $HOME/Projects/try-samples
 # set Nvidia X Server to prevent Scren Tearing
 # Nvidia X Server in Ubuntu - Select Configuration & Advanced
 # Select Force Composition Pipeline or Force Full Composition Pipeline
+
+# remove screen lock, blanking & energy saver
+xset s off
+xset s noblank
+xset -dpms
