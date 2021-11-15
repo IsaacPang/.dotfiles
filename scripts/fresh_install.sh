@@ -193,3 +193,7 @@ git clone https://github.com/dotnet/try-samples.git $HOME/Projects/try-samples
 xset s off
 xset s noblank
 xset -dpms
+
+## install conda
+# wget https://repo.anaconda.com/miniconda/Miniconda3-py39_4.10.3-Linux-x86_64.sh
+# bash Mniconda3-py39_4.10.3-Linux-x86_64.sh
