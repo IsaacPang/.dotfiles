@@ -262,3 +262,4 @@ exec_always feh --bg-scale /home/isaac/Pictures/background.jpg
 # Check class by using xprop command
 assign [class="Firefox"] $ws2
 assign [class="chromium"] $ws2
+
