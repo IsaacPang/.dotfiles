@@ -197,3 +197,6 @@ xset -dpms
 ## install conda
 # wget https://repo.anaconda.com/miniconda/Miniconda3-py39_4.10.3-Linux-x86_64.sh
 # bash Mniconda3-py39_4.10.3-Linux-x86_64.sh
+
+# symlink trash to home
+ln -s ~/.local/share/Trash ~/trash
