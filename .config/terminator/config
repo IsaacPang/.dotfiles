@@ -5,8 +5,10 @@
 [keybindings]
 [profiles]
   [[default]]
+    background_color = "#282828"
     cursor_color = "#aaaaaa"
     font = FiraCode Nerd Font 10
+    foreground_color = "#ebdbb2"
     show_titlebar = False
     scrollbar_position = hidden
     use_system_font = False
@@ -28,10 +30,46 @@
       type = Window
       parent = ""
       order = 0
-      position = 0:18
+      position = 0:16
       maximised = False
       fullscreen = False
-      size = 876, 1402
+      size = 1916, 1047
+      title = isaac@isaac-P51: ~
+      last_active_term = 327b77c6-d316-4595-b442-4d900bbe10e9
+      last_active_window = True
+    [[[terminal1]]]
+      type = Terminal
+      parent = child0
+      order = 0
+      profile = default
+      uuid = 327b77c6-d316-4595-b442-4d900bbe10e9
+  [[single]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 0:16
+      maximised = False
+      fullscreen = False
+      size = 1916, 1047
+      title = isaac@isaac-P51: ~
+      last_active_term = 327b77c6-d316-4595-b442-4d900bbe10e9
+      last_active_window = True
+    [[[terminal1]]]
+      type = Terminal
+      parent = child0
+      order = 0
+      profile = Material-Ocean
+      uuid = 327b77c6-d316-4595-b442-4d900bbe10e9
+  [[multi]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 0:16
+      maximised = False
+      fullscreen = False
+      size = 1916, 1047
       title = isaac@isaac-P51: ~
       last_active_term = 327b77c6-d316-4595-b442-4d900bbe10e9
       last_active_window = True
@@ -39,14 +77,14 @@
       type = HPaned
       parent = child0
       order = 0
-      position = 235
-      ratio = 0.269804822043628
+      position = 516
+      ratio = 0.27001569858712715
     [[[child2]]]
       type = VPaned
       parent = child1
       order = 0
-      position = 463
-      ratio = 0.33142448103078026
+      position = 345
+      ratio = 0.3310940499040307
     [[[terminal3]]]
       type = Terminal
       parent = child2
@@ -57,8 +95,8 @@
       type = VPaned
       parent = child2
       order = 1
-      position = 466
-      ratio = 0.4994640943193998
+      position = 350
+      ratio = 0.5028735632183908
     [[[terminal5]]]
       type = Terminal
       parent = child4
