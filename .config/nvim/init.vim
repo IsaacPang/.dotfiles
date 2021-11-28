@@ -1,28 +1,39 @@
+" --------------------------------------------------
+" Plugins
+" --------------------------------------------------
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
 " Colour Scheme Plugins
 Plug 'lifepillar/vim-gruvbox8'
+Plug 'simonsmith/material.vim'
 
 " Airline Plugins
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" Others
+" Snippets
 Plug 'tpope/vim-sensible'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+
+" Code Delights
 Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'}
-Plug 'simonsmith/material.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 
+" Fuzzy Finding
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'}
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
+" --------------------------------------------------
 
+" --------------------------------------------------
+" Default Settings
+" --------------------------------------------------
 " Show line numbers
 set relativenumber number
 
@@ -58,11 +69,47 @@ set splitright
 set ignorecase
 set smartcase
 
-" fzf-vim options
+" set clipboard=unnamed
+set clipboard=unnamedplus
+
+" set default tabstops
+set softtabstop=2 tabstop=2 shiftwidth=2 expandtab
+
+set ttimeoutlen=0
+
+set title
+
+set showcmd
+
+set scrolloff=5
+
+" --------------------------------------------------
+
+" --------------------------------------------------
+" Autocommands
+" --------------------------------------------------
+" tabstops by filetype
+autocmd FileType go set tabstop=2|set shiftwidth=2|set noexpandtab
+autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
+autocmd FileType ruby set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType yaml set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType coffee set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType sh set tabstop=2|set shiftwidth=2|set expandtab
+
+" JSON comments matching
+autocmd FileType json syntax match Comment +\/\/.\+$+
+" --------------------------------------------------
+
+" -------------------------------------------------- 
+" FZF
+" --------------------------------------------------
+"  Actions to open files from fzf
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit' }
+
+" colors for fzf
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
@@ -77,14 +124,11 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
-
-set softtabstop=4 tabstop=4 shiftwidth=4 expandtab
-
-" set clipboard=unnamed
-set clipboard=unnamedplus
-
-" Key mappings
 " -------------------------------------------------- 
+
+" -------------------------------------------------- 
+" Key mappings
+" --------------------------------------------------
 
 nnoremap k gk
 nnoremap j gj
@@ -105,6 +149,10 @@ vnoremap > >gv
 " cnoremap kj <C-C>
 
 " Switch between splits
+tnoremap <C-h> <C-\><C-n><C-w>h
+tnoremap <C-j> <C-\><C-n><C-w>j
+tnoremap <C-k> <C-\><C-n><C-w>k
+tnoremap <C-l> <C-\><C-n><C-w>l
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 nnoremap <C-k> <C-w>k
@@ -119,20 +167,95 @@ nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
 
 " Remove highlighting when exiting search
 nnoremap <esc> :noh<return><esc>
-
-" Nerdtree settings
 " -------------------------------------------------- 
-" open nerdtree with Ctrl + b
-nnoremap <C-b> :NERDTreeToggle<CR>
+
+" -------------------------------------------------- 
+" NERDtree
+" -------------------------------------------------- 
+" open nerdtree with Alt + b
+nnoremap <A-b> :NERDTreeToggle<CR>
 
 " If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
 autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
     \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
- 
 
+" Automatically close nvim if NERDTree is the only thing left open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" -------------------------------------------------- 
 
-"{{ Colour Schemes
+" -------------------------------------------------- 
+" Integrated Terminal
+" --------------------------------------------------
+" open terminal on Ctrl+n
+function! OpenTerminal()
+  split term://bash
+  resize 10
+endfunction
+nnoremap <C-n> :call OpenTerminal()<CR>
 
+" turn terminal to normal mode with escape
+tnoremap <Esc> <C-\><C-n>
+
+" start terminal in insert mode
+au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+" -------------------------------------------------- 
+
+" -------------------------------------------------- 
+" COC
+" --------------------------------------------------
+" Give more space for displaying messages.
+set cmdheight=2
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("nvim-0.5.0") || has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+" -------------------------------------------------- 
+
+" -------------------------------------------------- 
+" Airline
+" --------------------------------------------------
+let g:airline_theme='ayu_mirage'
+let g:airline_left_sep='>'
+let g:airline_right_set='|'
+let g:airline_powerline_fonts=1
+" -------------------------------------------------- 
+
+" -------------------------------------------------- 
+" Colour Schemes
+" -------------------------------------------------- 
 " Unified color scheme (default: dark)
 " color seoul256
 " silent! colorscheme material
@@ -141,5 +264,4 @@ let g:gruvbox_italicize_strings=1
 let g:gruvbox_filetype_hi_groups=0
 let g:gruvbox_plugin_hi_groups=0
 colorscheme gruvbox8
-
-"}}
+" -------------------------------------------------- 
