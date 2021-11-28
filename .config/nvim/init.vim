@@ -103,6 +103,8 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 " -------------------------------------------------- 
 " FZF
 " --------------------------------------------------
+"  Open FZF with Ctrl + P
+nnoremap <C-p> :FZF<CR>
 "  Actions to open files from fzf
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
