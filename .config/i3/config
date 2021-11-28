@@ -264,3 +264,6 @@ assign [class="Firefox"] $ws2
 assign [class="chromium"] $ws2
 assign [class="zoom"] $ws3
 
+# Map Escape to Capslock on startup
+exec xmodmap -e "clear lock" # disable capslock switch
+exec xmodmap -e "keysym Caps_lock = Escape" # set capslock as escape
