@@ -250,3 +250,5 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# initialise a ssh-agent
+eval `ssh-agent -s`
