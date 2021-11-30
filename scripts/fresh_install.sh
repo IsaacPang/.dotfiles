@@ -70,7 +70,8 @@ ranger --copy-config=all
 
 # updating rofi UI $ rofi-theme-selector
 
-# # install across linux using snap
+## Install across linux using snap
+# ==================================================
 # install vscode
 snap install code --classic
 # install chromium
@@ -79,6 +80,7 @@ snap install chromium
 snap install fromscratch
 # install slack
 sudo snap install slack --classic
+# ==================================================
 
 # install fira code nerd font
 wget -r https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip \
@@ -118,23 +120,23 @@ nvm install --lts
 nvm install 14
 nvm use 14
 
-## Install ASP.NET Core Runtime & .NET SDK for C# development
-# get microsoft trusted package signing keys
-wget https://packages.microsoft.com/config/ubuntu/21.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-dpkg -i packages-microsoft-prod.deb
-rm packages-microsoft-prod.deb
+### Install ASP.NET Core Runtime & .NET SDK for C# development
+## get microsoft trusted package signing keys
+#wget https://packages.microsoft.com/config/ubuntu/21.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+#dpkg -i packages-microsoft-prod.deb
+#rm packages-microsoft-prod.deb
 
-# install latest .NET SDK
-apt-get update; \
-  apt-get install -y apt-transport-https && \
-  apt-get update && \
-  apt-get install -y dotnet-sdk-5.0
-
-# install latest ASP.NET Core Runtime
-apt-get update; \
-  apt-get install -y apt-transport-https && \
-  apt-get update && \
-  apt-get install -y aspnetcore-runtime-5.0
+## install latest .NET SDK
+#apt-get update; \
+#  apt-get install -y apt-transport-https && \
+#  apt-get update && \
+#  apt-get install -y dotnet-sdk-5.0
+#
+## install latest ASP.NET Core Runtime
+#apt-get update; \
+#  apt-get install -y apt-transport-https && \
+#  apt-get update && \
+#  apt-get install -y aspnetcore-runtime-5.0
 
 ## install LTS versions
 # view latest apt policy for LTS version
@@ -145,6 +147,7 @@ apt-get update; \
 
 
 ## Installation option with dotnet-install.sh
+# ==================================================
 # install side-by-side .NET SDK & Core runtimes
 # wget https://dot.net/v1/dotnet-install.sh -O $HOME/scripts/dotnet-install.sh
 # chmod +x $HOME/scripts/dotnet-install.sh
@@ -155,19 +158,23 @@ apt-get update; \
 # $HOME/scripts/dotnet-install.sh --channel "2.1" --install-dir "$HOME/.dotnet" --os "linux"
 
 # install dotnet-try
-dotnet tool install --global Microsoft.dotnet-try # --version 1.0.20474.1
+# dotnet tool install --global Microsoft.dotnet-try # --version 1.0.20474.1
 # dotnet tool uninstall --global Microsoft.dotnet-try
 # dotnet tool update --global Microsoft.dotnet-try
+# ==================================================
 
 ## C# Development
+# ==================================================
 # use vscode to develop C# projects
 # Creating console projects with C#
 # dotnet new console -o <app-name>; cd <app-name>; dotnet restore; dotnet run
 
 # Creating a MVC webapp with C#
 # dotnet new mvc -au None -o <app-name>; cd <app-name>; dotnet restore; dotnet run
+# ==================================================
 
 ## Install neovim & configure. This must be done last
+# ==================================================
 # install neovim nightly version, using fuse
 wget -r https://github.com/neovim/neovim/releases/download/stable/nvim.appimage \
     -O $HOME/Downloads/nvim
@@ -180,23 +187,51 @@ pip3 install --user neovim
 
 # run :PlugInstall in neovim syncrhonously then quit all
 nvim '+PlugInstall --sync' +qa
+# ==================================================
 
-# home Projects folder
+## Install coc.nvim extensions
+# ==================================================
+set -o nounset    # error when referencing undefined variable
+set -o errexit    # exit when command fails
+
+# Install extensions
+mkdir -p ~/.config/coc/extensions
+cd ~/.config/coc/extensions
+if [ ! -f package.json ]
+then
+  echo '{"dependencies":{}}'> package.json
+fi
+# Change extension names to the extensions you need
+npm install coc-snippets coc-jedi coc-tsserver coc-html coc-css coc-json coc-yaml --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
+# ==================================================
+
+## home Projects folder
+# ==================================================
 mkdir $HOME/Projects
 git clone https://github.com/dotnet/try-samples.git $HOME/Projects/try-samples
+# ==================================================
 
-# set Nvidia X Server to prevent Scren Tearing
+## Set Nvidia X Server to prevent Screen Tearing
+# ==================================================
 # Nvidia X Server in Ubuntu - Select Configuration & Advanced
 # Select Force Composition Pipeline or Force Full Composition Pipeline
+# ==================================================
 
-# remove screen lock, blanking & energy saver
-xset s off
-xset s noblank
-xset -dpms
+## Remove screen lock, blanking & energy saver
+# ==================================================
+# xset s off
+# xset s noblank
+# xset -dpms
+# ==================================================
 
-## install conda
+## Install conda
+# ==================================================
 # wget https://repo.anaconda.com/miniconda/Miniconda3-py39_4.10.3-Linux-x86_64.sh
 # bash Mniconda3-py39_4.10.3-Linux-x86_64.sh
+# ==================================================
 
-# symlink trash to home
+## Symlink trash to home
+# ==================================================
 ln -s ~/.local/share/Trash ~/trash
+# ==================================================
+
