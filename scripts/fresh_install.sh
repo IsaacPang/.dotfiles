@@ -228,6 +228,8 @@ git clone https://github.com/dotnet/try-samples.git $HOME/Projects/try-samples
 # ==================================================
 # wget https://repo.anaconda.com/miniconda/Miniconda3-py39_4.10.3-Linux-x86_64.sh
 # bash Mniconda3-py39_4.10.3-Linux-x86_64.sh
+## install important conda dist
+# conda install -c conda-forge jedi-language-server
 # ==================================================
 
 ## Symlink trash to home
