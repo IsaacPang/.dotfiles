@@ -6,17 +6,21 @@ call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
 " Colour Scheme Plugins
-Plug 'lifepillar/vim-gruvbox8'
-Plug 'simonsmith/material.vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Airline Plugins
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Snippets
-Plug 'tpope/vim-sensible'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+
+" tpope
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
 
 " Code Delights
 Plug 'junegunn/vim-easy-align'
@@ -32,57 +36,34 @@ call plug#end()
 " --------------------------------------------------
 
 " --------------------------------------------------
-" Default Settings
+" General Settings
 " --------------------------------------------------
-" Show line numbers
 set relativenumber number
-
 let mapleader=' '
 let maplocalleader='\'
-
 set nocompatible
 filetype plugin on
 syntax on
-
 set noswapfile
 set nobackup
 set nowb
-
 set binary
-
 set termguicolors
-
 set textwidth=100
-
 set foldmethod=indent
 set nofoldenable
-
 set hidden
-
-set cursorline
-
 set noshowmode
-
+set title
 set splitbelow
 set splitright
-
 set ignorecase
 set smartcase
-
-" set clipboard=unnamed
 set clipboard=unnamedplus
-
-" set default tabstops
 set softtabstop=2 tabstop=2 shiftwidth=2 expandtab
-
 set ttimeoutlen=0
-
-set title
-
 set showcmd
-
 set scrolloff=5
-
 " --------------------------------------------------
 
 " --------------------------------------------------
@@ -98,6 +79,15 @@ autocmd FileType sh set tabstop=2|set shiftwidth=2|set expandtab
 
 " JSON comments matching
 autocmd FileType json syntax match Comment +\/\/.\+$+
+" --------------------------------------------------
+
+" --------------------------------------------------
+" tpope 
+" --------------------------------------------------
+"  vim-commentary
+vmap <C-_> gc
+nmap <C-_> gcc
+
 " --------------------------------------------------
 
 " -------------------------------------------------- 
@@ -258,12 +248,11 @@ let g:airline_powerline_fonts=1
 " -------------------------------------------------- 
 " Colour Schemes
 " -------------------------------------------------- 
-" Unified color scheme (default: dark)
-" color seoul256
-" silent! colorscheme material
-let g:gruvbox_italics=1
-let g:gruvbox_italicize_strings=1
-let g:gruvbox_filetype_hi_groups=0
-let g:gruvbox_plugin_hi_groups=0
-colorscheme gruvbox8
+augroup DraculaOverrides
+    autocmd!
+    autocmd ColorScheme dracula highlight DraculaBoundary guibg=none
+    autocmd ColorScheme dracula highlight DraculaDiffDelete ctermbg=none guibg=none
+    autocmd ColorScheme dracula highlight DraculaComment cterm=italic gui=italic
+    autocmd ColorScheme dracula call Adjust()
+augroup end
 " -------------------------------------------------- 
