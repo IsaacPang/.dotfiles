@@ -11,6 +11,10 @@ apt upgrade -y
 apt install git
 apt install xclip
 
+# install kitty
+curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+ln -s ~/.local/kitty.app/bin/kitty ~/.local/bin/
+
 # # Set up ssh
 # ssh-keygen -t ed25519 -C "your.email@example.com"
 # eval `ssh-agent -s`
