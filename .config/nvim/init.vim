@@ -6,7 +6,10 @@ call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
 " Colour Scheme Plugins
-Plug 'dracula/vim', { 'as': 'dracula' }
+" Plug 'dracula/vim', { 'as': 'dracula' }
+" Plug 'rktjmp/lush.nvim'
+" Plug 'ellisonleao/gruvbox.nvim'
+Plug 'arcticicestudio/nord-vim'
 
 " Airline Plugins
 Plug 'vim-airline/vim-airline'
@@ -248,11 +251,18 @@ let g:airline_powerline_fonts=1
 " -------------------------------------------------- 
 " Colour Schemes
 " -------------------------------------------------- 
-augroup DraculaOverrides
-    autocmd!
-    autocmd ColorScheme dracula highlight DraculaBoundary guibg=none
-    autocmd ColorScheme dracula highlight DraculaDiffDelete ctermbg=none guibg=none
-    autocmd ColorScheme dracula highlight DraculaComment cterm=italic gui=italic
-    autocmd ColorScheme dracula call Adjust()
-augroup end
+" Nord
+let g:nord_italic = 1
+let g:nord_italic_comments = 1
+" " Gruvbox
+" let g:gruvbox_italic = 1
+" colorscheme gruvbox
+" " Dracula
+" augroup DraculaOverrides
+"     autocmd!
+"     autocmd ColorScheme dracula highlight DraculaBoundary guibg=none
+"     autocmd ColorScheme dracula highlight DraculaDiffDelete ctermbg=none guibg=none
+"     autocmd ColorScheme dracula highlight DraculaComment cterm=italic gui=italic
+"     autocmd ColorScheme dracula call Adjust()
+" augroup end
 " -------------------------------------------------- 
