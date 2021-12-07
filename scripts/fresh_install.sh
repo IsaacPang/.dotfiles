@@ -45,15 +45,6 @@ git clone --bare https://github.com/IsaacPang/.dotfiles.git $HOME/.dotfiles
 # install python other tooling
 apt python3-pip unzip
 
-# install terminator
-apt install terminator
-
-# customise terminator
-pip install requests
-mkdir -p $HOME/.config/terminator/plugins
-wget https://git.io/v5Zww -O $HOME/.config/terminator/plugins/terminator-themes.py
-# select terminator themes as required
-
 # install i3 and deps
 apt install ranger i3 feh fonts-font-awesome rofi \
     pulseaudio-utils xbacklight alsa-tools clipit \
@@ -64,7 +55,7 @@ apt install shutter
 
 # install video camera drivers
 apt install cheese
-# install zoom from zoom website
+# install zoom from zoom website if required
 
 # install python and neovim deps
 python3 -m pip install --user --upgrade pynvim
@@ -219,13 +210,6 @@ git clone https://github.com/dotnet/try-samples.git $HOME/Projects/try-samples
 # ==================================================
 # Nvidia X Server in Ubuntu - Select Configuration & Advanced
 # Select Force Composition Pipeline or Force Full Composition Pipeline
-# ==================================================
-
-## Remove screen lock, blanking & energy saver
-# ==================================================
-# xset s off
-# xset s noblank
-# xset -dpms
 # ==================================================
 
 ## Install conda
