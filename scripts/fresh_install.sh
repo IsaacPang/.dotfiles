@@ -75,6 +75,8 @@ snap install chromium
 snap install fromscratch
 # install slack
 sudo snap install slack --classic
+# install telegram
+sudo snap install telegram-desktop
 # ==================================================
 
 # install fira code nerd font
