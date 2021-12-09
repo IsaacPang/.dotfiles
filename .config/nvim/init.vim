@@ -254,6 +254,7 @@ let g:airline_powerline_fonts=1
 " Nord
 let g:nord_italic = 1
 let g:nord_italic_comments = 1
+colorscheme nord
 " " Gruvbox
 " let g:gruvbox_italic = 1
 " colorscheme gruvbox
