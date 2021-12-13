@@ -227,3 +227,8 @@ git clone https://github.com/dotnet/try-samples.git $HOME/Projects/try-samples
 ln -s ~/.local/share/Trash ~/trash
 # ==================================================
 
+## Dircolors
+# ==================================================
+dircolors -p | sed 's/;42/;01/' > ~/.dircolors
+source ~/.bashrc
+# ==================================================
