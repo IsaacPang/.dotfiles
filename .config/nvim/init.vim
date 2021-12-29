@@ -41,6 +41,7 @@ call plug#end()
 " --------------------------------------------------
 " General Settings
 " --------------------------------------------------
+let g:python3_host_prog = expand('~/miniconda3/bin/python3')
 set relativenumber number
 let mapleader=' '
 let maplocalleader='\'
