@@ -271,4 +271,4 @@ exec_always --no-startup-id xmodmap -e "keysym Caps_Lock = Escape" # set capsloc
 # # Remove screen lock, blanking & energy saver
 # exec_always --no-startup-id xset s off
 # exec_always --no-startup-id xset s noblank
-# exec_always --no-startup-id xste -dpms
+# exec_always --no-startup-id xset -dpms

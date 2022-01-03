@@ -109,13 +109,13 @@ rm -r $HOME/Downloads/FiaCode.zip
 #         Option "NaturalScrolling" "True"
 # EndSection
 
-# install node version manager
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+# # install node version manager
+# wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 
-# install node 14 LTS (should be updated with time)
-nvm install --lts
-nvm install 14
-nvm use 14
+# # install node 14 LTS (should be updated with time)
+# nvm install --lts
+# nvm install 14
+# nvm use 14
 
 ### Install ASP.NET Core Runtime & .NET SDK for C# development
 ## get microsoft trusted package signing keys
