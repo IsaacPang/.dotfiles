@@ -200,8 +200,8 @@ bar {
         inactive_workspace #002b36 #586e75 #002b36
         urgent_workspace #d33682 #d33682 #fdf6e3
 
-        statusline         $white
-        separator          $transparent
+        statusline         #ffffff
+        separator          #ffffff
     }
 }
 
